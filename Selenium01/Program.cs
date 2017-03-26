@@ -3,13 +3,13 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 
-namespace Selenium01
+namespace selenium.csharp
 {
 	// Faced the issue to build the project once ... not sure how it was resolved... Need to investigate further...
 	class MainClass
 	{
-		IWebDriver driver = new ChromeDriver(@"/Users/masihur/MyDevelopment/Selenium/C#/Selenium01/Selenium01/");
-
+		IWebDriver driver;
+		SeleniumSetMethods set;
 		public static void Main(string[] args)
 		{
 
@@ -18,18 +18,21 @@ namespace Selenium01
 		[SetUp]
 		public void SetUp()
 		{
-			driver.Navigate().GoToUrl("http://www.google.com");
+			driver = new ChromeDriver(@"/Users/masihur/MyDevelopment/Selenium/C#/Selenium01/Selenium01/");
+			set = new SeleniumSetMethods(driver);
+			//driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html");
+			driver.Navigate().GoToUrl("http:www.google.com");
 		}
 		[Test]
 		public void ExecuteTest()
 		{
-			IWebElement element = driver.FindElement(By.Name("q"));
-			element.SendKeys("Masihur's Blog \n");
+			set.EnterText("Masihur", "q");
+			set.ClickSeaarch("btnG");
 		}
 		[TearDown]
 		public void TearDown()
 		{
-			driver.Close();
+			//driver.Close();
 		}
 
 	}
