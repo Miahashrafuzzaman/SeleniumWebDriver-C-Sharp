@@ -41,9 +41,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="MainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeleniumSetMethods.cs" />
+    <Compile Include="UtilMethods.cs" />
+    <Compile Include="GooglePageObject.cs" />
+    <Compile Include="ScriptBase.cs" />
+    <Compile Include="TestCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
